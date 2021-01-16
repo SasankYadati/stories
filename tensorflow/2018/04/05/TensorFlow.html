@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>TensorFlow | fastpages</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="TensorFlow" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Understand the basics of TensorFlow." />
+<meta property="og:description" content="Understand the basics of TensorFlow." />
+<link rel="canonical" href="https://sasankyadati.github.io/stories/tensorflow/2018/04/05/TensorFlow.html" />
+<meta property="og:url" content="https://sasankyadati.github.io/stories/tensorflow/2018/04/05/TensorFlow.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-04-05T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://sasankyadati.github.io/stories/tensorflow/2018/04/05/TensorFlow.html","@type":"BlogPosting","headline":"TensorFlow","dateModified":"2018-04-05T00:00:00-05:00","datePublished":"2018-04-05T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://sasankyadati.github.io/stories/tensorflow/2018/04/05/TensorFlow.html"},"description":"Understand the basics of TensorFlow.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/stories/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://sasankyadati.github.io/stories/feed.xml" title="fastpages" /><link rel="shortcut icon" type="image/x-icon" href="/stories/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/stories/">fastpages</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/stories/about/">About Me</a><a class="page-link" href="/stories/search/">Search</a><a class="page-link" href="/stories/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">TensorFlow</h1><p class="page-description">Understand the basics of TensorFlow.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2018-04-05T00:00:00-05:00" itemprop="datePublished">
+        Apr 5, 2018
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      5 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/stories/categories/#TensorFlow">TensorFlow</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="introduction">Introduction</h2>
+
+<p>TensorFlow is an open source library for machine intelligence developed by Google. It is a computational library with a wide range of functionality. However, its main purpose is to implement Machine Learning algorithms.
+TensorFlow is extremely popular relative to other Deep Learning libraries due to many reasons. One of the most important reasons being its ability to facilitate both research and production. This was not possible with the other libraries. Researchers and developers had to use one language for research and prototyping and some other language to deploy their model into production. Needless to say, TensorFlow took good care of this.</p>
+
+<blockquote>
+  <p>Research AND Production?! TensorFlow got it covered.</p>
+</blockquote>
+
+<p>There are many other reasons for someone to choose TensorFlow over other libraries. Some of them include Python interface, TensorBoard (kick-ass visualizations!) and Auto Differentiation.</p>
+
+<h2 id="the-basics">The basics</h2>
+
+<p>Any TensorFlow program essentially contains 2 components : Computational Graph and Session.
+Computational Graphs are a means to specify computations that need to be carried out in our model. They are directed graphs, where nodes represent operations and edges represent tensors and the direction in which they move (hence, the name TensorFlow!).
+Once we define our graph, we can run it by creating a session. We can execute the whole graph or just a part of it. Session allocates memory for the graph and the variables.</p>
+
+<p>(Note : TensorFlow has a new feature called Eager Execution which is more Python way of doing things. It is imperative in nature contrast to the graph-and-session approach, which is declarative.)</p>
+
+<p><img src="/stories/images/comp_graph.jfif" alt="" title="A Computational Graph. Nodes represent operations and edges represent data. Source: TensorFlow for Machine Intelligence" /></p>
+
+<p>In the above graph, you can see nodes corresponding to multiplication and addition operations. You can also see how data flows in the graph from one node to another. After defining such graph, we can run it (or parts of it) in a session.</p>
+
+<h2 id="tensors-constants-variables-and-placeholders">Tensors, Constants, Variables and Placeholders</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="n">tf</span>
+</code></pre></div></div>
+
+<p>Tensors are best understood as a means of generalizing scalars, vectors and matrices. Scalars are 0-dimensional, vectors are 1-dimensional and matrices are 2-dimensional.</p>
+
+<blockquote>
+  <p>Tensors are n-dimensional arrays.</p>
+</blockquote>
+
+<p>Extending this idea, tensors are nothing but n-dimensional. If n is 0 they are scalars, if n is 1 they are vectors and so on. The rank of a tensor is nothing but the number of dimensions of the tensor.</p>
+
+<p>Creating constants in TensorFlow is simple.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># A is a 1D tensor constant
+</span><span class="n">A</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">constant</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s">"A_vector"</span><span class="p">)</span>
+<span class="c1"># B is a 2D tensor constant
+</span><span class="n">B</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">constant</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="mi">33</span><span class="p">]],</span> <span class="n">name</span><span class="o">=</span><span class="s">"B_matrix"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>You can create constants using various other operations like <code class="language-plaintext highlighter-rouge">tf.zeros(...)</code> , <code class="language-plaintext highlighter-rouge">tf.ones(...)</code> and <code class="language-plaintext highlighter-rouge">tf.random_normal(...)</code>.</p>
+
+<p>Constants’ values cannot be changed and are stored in the graph’s definition. They are loaded every time you load the graph. Variables on the other hand, are mutable and are stored separately from the graph definition.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Variables can be created using tf.get_variable(...) function
+</span><span class="n">tf</span><span class="p">.</span><span class="n">get_variable</span><span class="p">(</span>
+    <span class="n">name</span><span class="p">,</span>
+    <span class="n">shape</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">dtype</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">initializer</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">regularizer</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">trainable</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">collections</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">caching_device</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">partitioner</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">validate_shape</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">use_resource</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">custom_getter</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">constraint</span><span class="o">=</span><span class="bp">None</span>
+<span class="p">)</span>
+
+<span class="c1"># Let us create a variable "weights" of shape 10x10 filled with zeros.
+</span><span class="n">weights</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s">"weights"</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">initializer</span><span class="o">=</span><span class="n">tf</span><span class="p">.</span><span class="n">zeros_initializer</span><span class="p">())</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>Constants are immutable and are stored in the graph definition. Variables are mutable and are stored separately from the graph.</p>
+</blockquote>
+
+<p>Before using the variables you have to initialize them in a session. For this, we usually create a initializer operation and run this operation in a session. One operation is enough to initialize all variables, although you can initialize them individually.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Define variables
+</span><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">get_variable</span><span class="p">(...)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">get_variable</span><span class="p">(...)</span>
+<span class="c1"># Define an initializer operation
+</span><span class="n">init_op</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">global_variables_initializer</span><span class="p">()</span>
+<span class="c1"># Create a session
+</span><span class="k">with</span> <span class="n">tf</span><span class="p">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+  <span class="c1"># Run the init operation
+</span>  <span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">init_op</span><span class="p">)</span>
+  <span class="c1"># Use variables
+</span>  <span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+  <span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>When we are defining our graph, we will not always know what values we need for certain computations. In order to define a computation without specifying the values, we use placeholders. It is similar to defining <code class="language-plaintext highlighter-rouge">F(x,y)</code> without specifying the values of <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> .</p>
+
+<blockquote>
+  <p>Placeholders allow us to define computations without providing values.</p>
+</blockquote>
+
+<p>Let us define <code class="language-plaintext highlighter-rouge">f(x,y) = x*y</code> where <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> are placeholders.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Define two placeholders
+</span><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="c1"># Define f to be x*y
+</span><span class="n">f</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span>
+<span class="c1"># Create a session
+</span><span class="k">with</span> <span class="n">tf</span><span class="p">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+  <span class="n">x_value</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]]</span>
+  <span class="n">y_value</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]]</span>
+  <span class="c1"># To compute f, we need to supply the values for the placeholders x and y
+</span>  <span class="n">f_value</span> <span class="o">=</span> <span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">f</span><span class="p">,{</span><span class="n">x</span><span class="p">:</span><span class="n">x_value</span> <span class="p">,</span> <span class="n">y</span><span class="p">:</span><span class="n">y_value</span><span class="p">})</span>
+</code></pre></div></div>
+
+<p>As you can see in the code above, we need to supply values for placeholders if we want to evaluate <code class="language-plaintext highlighter-rouge">f(x,y)</code>.</p>
+
+<p>TensorFlow has many operations ranging from matrix inversion to advanced optimizations. We will cover basic operations by implementing a linear regression model.</p>
+
+<h1 id="linear-regression-in-tensorflow">Linear Regression in TensorFlow</h1>
+
+<p>Linear Regression is basically finding a best fit line through a set of points. We will create two placeholders <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> whose values are later supplied in a session. We have weights <code class="language-plaintext highlighter-rouge">w</code> and bias <code class="language-plaintext highlighter-rouge">b</code> , whose optimal values need to be found by an optimizer. So, these will be variables. We will define our model <code class="language-plaintext highlighter-rouge">f</code> as <code class="language-plaintext highlighter-rouge">f(x) = w * x + b</code>.</p>
+
+<blockquote>
+  <p>Have you ever fit a line through data? It’s liberating.</p>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">500</span><span class="p">])</span> <span class="c1"># 500 values for x
+</span><span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">500</span><span class="p">])</span> <span class="c1"># 500 values for y
+</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s">'w'</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">initializer</span><span class="o">=</span><span class="n">tf</span><span class="p">.</span><span class="n">zeros_initializer</span><span class="p">())</span> <span class="c1"># Variable w initialized with 0's
+</span><span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s">'b'</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">initializer</span><span class="o">=</span><span class="n">tf</span><span class="p">.</span><span class="n">zeros_initializer</span><span class="p">())</span> <span class="c1"># Variable b initialized with 0's
+</span>
+<span class="n">init_op</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">global_variables_initializer</span><span class="p">()</span> <span class="c1"># Variables initializer operation
+</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">w</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span> <span class="c1"># Our model
+</span></code></pre></div></div>
+
+<p>Now, all that is left is to define a loss function and an optimizer. We will then run the optimizer operation in a session a few times and voila! We will have the model trained.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Define loss function as sum of squares
+</span><span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">square</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">f</span><span class="p">))</span><span class="o">/</span><span class="mi">500</span>
+<span class="c1"># Define Gradient Descent optimizer with minimization of loss as objective
+</span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">train</span><span class="p">.</span><span class="n">GradientDescentOptimizer</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.0003</span><span class="p">).</span><span class="n">minimize</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+
+<span class="c1">## Generate random data for training
+</span><span class="n">x_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">500</span><span class="p">)]</span>
+<span class="n">y_values</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">20</span><span class="o">+</span><span class="n">random</span><span class="p">.</span><span class="n">random</span><span class="p">())</span><span class="o">*</span><span class="n">x_val</span><span class="o">+</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="n">random</span><span class="p">.</span><span class="n">random</span><span class="p">())</span> <span class="k">for</span> <span class="n">x_val</span> <span class="ow">in</span> <span class="n">x_values</span><span class="p">]</span>
+
+<span class="c1">## Create a session
+</span><span class="k">with</span> <span class="n">tf</span><span class="p">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+  <span class="c1"># Run the init operation
+</span>  <span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">init_op</span><span class="p">)</span>
+  <span class="c1"># 2000 Epochs
+</span>  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2000</span><span class="p">):</span>
+      <span class="c1"># Run loss and optimizer operations
+</span>      <span class="n">c</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">([</span><span class="n">loss</span><span class="p">,</span><span class="n">optimizer</span><span class="p">],</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span><span class="n">x_values</span><span class="p">,</span><span class="n">y</span><span class="p">:</span><span class="n">y_values</span><span class="p">})</span>
+      <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">100</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span> <span class="c1"># Print loss every 100 epochs
+</span>          <span class="k">print</span><span class="p">(</span><span class="s">"Epoch : {} , Loss : {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">c</span><span class="p">))</span>
+  <span class="c1"># Finally, print optimized values of w and b
+</span>  <span class="k">print</span><span class="p">(</span><span class="s">"w="</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">w</span><span class="p">)))</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"b="</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">b</span><span class="p">)))</span>
+</code></pre></div></div>
+<h2 id="conclusion">Conclusion</h2>
+<p>I hope you have gained a good sense of how TensorFlow works! You pretty much know the basic constructs and can further build up to develop awesome applications. I wish to write a post on TensorBoard in the near future, covering the visualization aspects of TensorFlow. Until then!</p>
+
+  </div><a class="u-url" href="/stories/tensorflow/2018/04/05/TensorFlow.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/stories/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/stories/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/stories/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/stories/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/stories/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
