@@ -4,7 +4,7 @@ layout: post
 description: Understand the basics of TensorFlow.
 categories: [TensorFlow]
 title: TensorFlow
-image: images/comp_graph.jfif
+image: images/2018-04-05-Tensorflow/comp_graph.jfif
 ---
 ## Introduction
 
@@ -23,7 +23,7 @@ Once we define our graph, we can run it by creating a session. We can execute th
 
 (Note : TensorFlow has a new feature called Eager Execution which is more Python way of doing things. It is imperative in nature contrast to the graph-and-session approach, which is declarative.)
 
-![]({{ site.baseurl }}/images/comp_graph.jfif "A Computational Graph. Nodes represent operations and edges represent data. Source: TensorFlow for Machine Intelligence")
+![]({{ site.baseurl }}/images/2018-04-05-Tensorflow/comp_graph.jfif "A Computational Graph. Nodes represent operations and edges represent data. Source: TensorFlow for Machine Intelligence")
 
 In the above graph, you can see nodes corresponding to multiplication and addition operations. You can also see how data flows in the graph from one node to another. After defining such graph, we can run it (or parts of it) in a session.
 

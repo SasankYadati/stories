@@ -2,7 +2,7 @@ help:
 	cat Makefile
 
 # start (or restart) the services
-server: .FORCE
+server:
 	docker-compose down --remove-orphans || true;
 	docker-compose up
 
