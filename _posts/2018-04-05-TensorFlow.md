@@ -4,6 +4,7 @@ layout: post
 description: Understand the basics of TensorFlow.
 categories: [TensorFlow]
 title: TensorFlow
+image: images/comp_graph.jfif
 ---
 ## Introduction
 
