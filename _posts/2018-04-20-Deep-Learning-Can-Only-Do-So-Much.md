@@ -8,7 +8,7 @@ image: images/2018-04-18-Deep-Learning-can-only-do-so-much/deep_learning.jpeg
 ---
 
 ## Prologue
-Deep Learning has revolutionized machine capabilities by leveraging the advancements in computing power and rise in amounts of data available. From object recognition to recommendation engines and from translation systems to fraud detection, we have witnessed state-of-the-art performances using Deep Learning.
+Deep Learning has revolutionized machine capabilities by leveraging the advancements in computing power and the rise in amounts of data available. From object recognition to recommendation engines and from translation systems to fraud detection, we have witnessed state-of-the-art performances using Deep Learning.
 
 Consequently, Deep Learning powered applications have become a reality in no time. Apps on your smartphone are probably running Deep Learning algorithms locally while getting better with time and usage. Obviously, there is so much hype around Deep Leaning thanks to the various tech companies and media. In fact, most of the hype is justified given its impact. However, I believe it is vital to understand what Deep Learning can and cannot do.
 
@@ -18,7 +18,7 @@ So essentially, each layer computes a transformation on the input and passes it 
 
 ![]({{ site.baseurl }}/images/2018-04-18-Deep-Learning-can-only-do-so-much/deep_learning.jpeg "A Deep Neural Network. Source: FreeCodeCamp")
 
-To sum it up, you have a large bunch of examples including the input and the output. You feed the input, compute the output by performing transformations at each layer, compare this output with the actual output and depending on the difference we adjust the parameters of neurons in different layers. This process repeats until we achieve desired performance.
+To sum it up, you have a large bunch of examples including the input and the output. You feed the input, compute the output by performing transformations at each layer, compare this output with the actual output and depending on the difference we adjust the parameters of neurons in different layers. This process repeats until we achieve the desired performance.
 
 Although I have obscured many details, it still is a simple idea. Yet, unbelievably effective. Theoretically, Deep Learning is powerful enough to represent any deterministic mapping between a set of inputs and outputs. But, you probably shouldn’t read too much into it, as many other factors come into play in practice.
 
@@ -31,7 +31,7 @@ Deep Learning models work well only when they have large amounts of data availab
 In fact, the more complex transformations you want it to learn (assuming it can), the bigger the network has to be and more the data it requires so as to not fit on some irrelevant relationships and patterns. This is mostly in contrast with how humans learn. A child doesn’t need millions of examples to classify a hot dog from not a hot dog.
 
 ### Adversarial examples hurt the performance
-Using the idea of gradient ascend, it is very easy to trick the model to predict really high probabilities for incorrect classes. This is as simple as taking an image of class A and adding to it the gradient of image of class B. Although it almost has no visual difference to us, deep learning models fail to classify them.
+Using the idea of gradient ascend, it is very easy to trick the model to predict really high probabilities for incorrect classes. This is as simple as taking an image of class A and adding to it the gradient of an image of class B. Although it almost has no visual difference to us, deep learning models fail to classify them.
 ![]({{ site.baseurl }}/images/2018-04-18-Deep-Learning-can-only-do-so-much/adv_images.png "Fooling the model by adding gradient of a different class. Source: blog.keras.io")
 Many strategies have been proposed to prevent adversarial attacks, but almost all of them defend only some subset of these attacks.
 
@@ -44,16 +44,16 @@ To quote Francois Chollet,
 I could not put that in better words. Deep Learning can only generalize to something new given it is similar to the data it has seen. Humans, on the other hand, are adaptive to novel situations.
 
 ### Restrictions on transformations it can use
-We have learnt that each layer in a neural network applies a geometric transformation to the input and passes it forward to the next layer.
-Deep Learning uses gradient based optimizations to learn the right values for the parameters of the transformations. This imposes a restriction on what kind of transformations we could use. Since, the transformations need to be differentiable, they need to be smooth and continuous as well. This is quite a strong restriction.
+We have learned that each layer in a neural network applies a geometric transformation to the input and passes it forward to the next layer.
+Deep Learning uses gradient-based optimizations to learn the right values for the parameters of the transformations. This imposes a restriction on what kind of transformations we could use. Since, the transformations need to be differentiable, they need to be smooth and continuous as well. This is quite a strong restriction.
 
 ### Trouble with Hierarchical Structure
-There is no way for a Deep Learning model to deal with hierarchical structure. It only learns correlations among features that are flat and considered equal.
+There is no way for a Deep Learning model to deal with hierarchical structures. It only learns correlations among features that are flat and considered equal.
 This is a serious problem, considering what Noam Chomsky believes: natural languages have hierarchical structures, where large structures are recursively made out of smaller ones.
 
 ![]({{ site.baseurl }}/images/2018-04-18-Deep-Learning-can-only-do-so-much/eng_sentence.gif "Hierarchical Structure of an English Sentence. Source: Grammarpedia English Grammar Resource.")
 
-This is why RNNs have trouble extending what they have learnt to unfamiliar examples. They assume natural languages to be nothing but a set of sequences and thereby perform poorly when they come across complex sentences.
+This is why RNNs have trouble extending what they have learned to unfamiliar examples. They assume natural languages to be nothing but a set of sequences and thereby perform poorly when they come across complex sentences.
 
 <hr>
 
