@@ -76,7 +76,7 @@ weights = tf.get_variable("weights", shape=(10,10), initializer=tf.zeros_initial
 
 > Constants are immutable and are stored in the graph definition. Variables are mutable and are stored separately from the graph.
 
-Before using the variables you have to initialize them in a session. For this, we usually create a initializer operation and run this operation in a session. One operation is enough to initialize all variables, although you can initialize them individually.
+Before using the variables you have to initialize them in a session. For this, we usually create an initializer operation and run this operation in a session. One operation is enough to initialize all variables, although you can initialize them individually.
 
 ```python
 # Define variables
@@ -93,7 +93,7 @@ with tf.Session() as sess:
   sess.run(b)
 ```
 
-When we are defining our graph, we will not always know what values we need for certain computations. In order to define a computation without specifying the values, we use placeholders. It is similar to defining `F(x,y)` without specifying the values of `x` and `y` .
+When we are defining our graph, we will not always know what values we need for certain computations. To define a computation without specifying the values, we use placeholders. It is similar to defining `F(x,y)` without specifying the values of `x` and `y` .
 
 > Placeholders allow us to define computations without providing values.
 
@@ -119,7 +119,7 @@ TensorFlow has many operations ranging from matrix inversion to advanced optimiz
 
 ## Linear Regression in TensorFlow
 
-Linear Regression is basically finding a best fit line through a set of points. We will create two placeholders `x` and `y` whose values are later supplied in a session. We have weights `w` and bias `b` , whose optimal values need to be found by an optimizer. So, these will be variables. We will define our model `f` as `f(x) = w * x + b`.
+Linear Regression is basically finding the best fit line through a set of points. We will create two placeholders `x` and `y` whose values are later supplied in a session. We have weights `w` and bias `b` , whose optimal values need to be found by an optimizer. So, these will be variables. We will define our model `f` as `f(x) = w * x + b`.
 
 > Have you ever fit a line through data? It’s liberating.
 
