@@ -183,7 +183,7 @@ Once we define our graph, we can run it by creating a session. We can execute th
   <p>Constants are immutable and are stored in the graph definition. Variables are mutable and are stored separately from the graph.</p>
 </blockquote>
 
-<p>Before using the variables you have to initialize them in a session. For this, we usually create a initializer operation and run this operation in a session. One operation is enough to initialize all variables, although you can initialize them individually.</p>
+<p>Before using the variables you have to initialize them in a session. For this, we usually create an initializer operation and run this operation in a session. One operation is enough to initialize all variables, although you can initialize them individually.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Define variables
 </span><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">get_variable</span><span class="p">(...)</span>
@@ -199,7 +199,7 @@ Once we define our graph, we can run it by creating a session. We can execute th
   <span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>When we are defining our graph, we will not always know what values we need for certain computations. In order to define a computation without specifying the values, we use placeholders. It is similar to defining <code class="language-plaintext highlighter-rouge">F(x,y)</code> without specifying the values of <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> .</p>
+<p>When we are defining our graph, we will not always know what values we need for certain computations. To define a computation without specifying the values, we use placeholders. It is similar to defining <code class="language-plaintext highlighter-rouge">F(x,y)</code> without specifying the values of <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> .</p>
 
 <blockquote>
   <p>Placeholders allow us to define computations without providing values.</p>
@@ -226,7 +226,7 @@ Once we define our graph, we can run it by creating a session. We can execute th
 
 <h2 id="linear-regression-in-tensorflow">Linear Regression in TensorFlow</h2>
 
-<p>Linear Regression is basically finding a best fit line through a set of points. We will create two placeholders <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> whose values are later supplied in a session. We have weights <code class="language-plaintext highlighter-rouge">w</code> and bias <code class="language-plaintext highlighter-rouge">b</code> , whose optimal values need to be found by an optimizer. So, these will be variables. We will define our model <code class="language-plaintext highlighter-rouge">f</code> as <code class="language-plaintext highlighter-rouge">f(x) = w * x + b</code>.</p>
+<p>Linear Regression is basically finding the best fit line through a set of points. We will create two placeholders <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> whose values are later supplied in a session. We have weights <code class="language-plaintext highlighter-rouge">w</code> and bias <code class="language-plaintext highlighter-rouge">b</code> , whose optimal values need to be found by an optimizer. So, these will be variables. We will define our model <code class="language-plaintext highlighter-rouge">f</code> as <code class="language-plaintext highlighter-rouge">f(x) = w * x + b</code>.</p>
 
 <blockquote>
   <p>Have you ever fit a line through data? It’s liberating.</p>
