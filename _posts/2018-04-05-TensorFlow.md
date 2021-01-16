@@ -8,7 +8,7 @@ image: images/2018-04-05-Tensorflow/comp_graph.jfif
 ---
 ## Introduction
 
-TensorFlow is an open source library for machine intelligence developed by Google. It is a computational library with a wide range of functionality. However, its main purpose is to implement Machine Learning algorithms.
+TensorFlow is an open-source library for machine intelligence developed by Google. It is a computational library with a wide range of functionality. However, its main purpose is to implement Machine Learning algorithms.
 TensorFlow is extremely popular relative to other Deep Learning libraries due to many reasons. One of the most important reasons being its ability to facilitate both research and production. This was not possible with the other libraries. Researchers and developers had to use one language for research and prototyping and some other language to deploy their model into production. Needless to say, TensorFlow took good care of this.
 
 > Research AND Production?! TensorFlow got it covered.
@@ -21,11 +21,11 @@ Any TensorFlow program essentially contains 2 components : Computational Graph a
 Computational Graphs are a means to specify computations that need to be carried out in our model. They are directed graphs, where nodes represent operations and edges represent tensors and the direction in which they move (hence, the name TensorFlow!).
 Once we define our graph, we can run it by creating a session. We can execute the whole graph or just a part of it. Session allocates memory for the graph and the variables.
 
-(Note : TensorFlow has a new feature called Eager Execution which is more Python way of doing things. It is imperative in nature contrast to the graph-and-session approach, which is declarative.)
+(Note : TensorFlow has a new feature called Eager Execution which is a more Pythonic way of doing things. It is imperative in nature contrast to the graph-and-session approach, which is declarative.)
 
 ![]({{ site.baseurl }}/images/2018-04-05-Tensorflow/comp_graph.jfif "A Computational Graph. Nodes represent operations and edges represent data. Source: TensorFlow for Machine Intelligence")
 
-In the above graph, you can see nodes corresponding to multiplication and addition operations. You can also see how data flows in the graph from one node to another. After defining such graph, we can run it (or parts of it) in a session.
+In the above graph, you can see nodes corresponding to multiplication and addition operations. You can also see how data flows in the graph from one node to another. After defining such a graph, we can run it (or parts of it) in a session.
 
 ## Tensors, Constants, Variables and Placeholders
 
@@ -162,4 +162,4 @@ with tf.Session() as sess:
   print("b=".format(sess.run(b)))
 ```
 ## Conclusion
-I hope you have gained a good sense of how TensorFlow works! You pretty much know the basic constructs and can further build up to develop awesome applications. I wish to write a post on TensorBoard in the near future, covering the visualization aspects of TensorFlow. Until then!
+I hope you have gained a good sense of how TensorFlow works! You pretty much know the basic constructs and can further build-up to develop awesome applications. I wish to write a post on TensorBoard soon, covering the visualization aspects of TensorFlow. Until then!
