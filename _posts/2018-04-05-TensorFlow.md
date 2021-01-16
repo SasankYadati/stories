@@ -116,7 +116,7 @@ As you can see in the code above, we need to supply values for placeholders if w
 
 TensorFlow has many operations ranging from matrix inversion to advanced optimizations. We will cover basic operations by implementing a linear regression model.
 
-# Linear Regression in TensorFlow
+## Linear Regression in TensorFlow
 
 Linear Regression is basically finding a best fit line through a set of points. We will create two placeholders `x` and `y` whose values are later supplied in a session. We have weights `w` and bias `b` , whose optimal values need to be found by an optimizer. So, these will be variables. We will define our model `f` as `f(x) = w * x + b`.
 
