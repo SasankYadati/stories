@@ -6,7 +6,7 @@
 
 https://SasankYadati.github.io/fastpages/
 
-# My Blog
+# Stories
 
 
 _powered by [fastpages](https://github.com/fastai/fastpages)_
