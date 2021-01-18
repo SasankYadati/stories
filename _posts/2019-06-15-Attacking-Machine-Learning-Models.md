@@ -36,23 +36,29 @@ But, theoretically deep neural networks are able to represent functions that are
 
 ## How to generate Adversarial Examples?
 We are already past the hardest part. We will discuss few methods to generate adversarial examples below and the key idea here is to use the gradient information.
+
 ### Fast Gradient Sign Method
 For a given example $$x$$, generate adversarial example $$x'$$ as follows:
 
 $$x' = x + \epsilon * sign(\frac{\partial J}{\partial x})$$
 
-grad() is the gradient function. $$sign(c)$$ returns $$-1$$ if $$c$$ is negative and $$+1$$ otherwise of the input. $$epsilon$$ is the amount of perturbation. $$J$$ is the cost function.
-This can be intuitive once you notice that we are moving the image in the direction of increasing gradient in steps of size epsilon.
-This is a one shot method to generate an adversarial example. Value of epsilon is a trade off between similarity to x and success of an adversarial attack using X.
+$$sign(c)$$ returns $$-1$$ if $$c$$ is negative and $$+1$$ otherwise of the input. $$\epsilon$$ is the amount of perturbation. $$J$$ is the cost function.
+This can be intuitive once you notice that we are moving the image in the direction of increasing gradient in steps of size $$\epsilon$$.
+This is a one shot method to generate an adversarial example. $$\epsilon$$ is a trade off between similarity to $$x$$ and success of an adversarial attack using $$x'$$.
+
 ### Basic Iterative Method
-We extend the idea of above method and iteratively perform the update for X and clip the output pixel wise so as to keep final X within epsilon neighborhood.
-X = Clip-epsilon( x + sign( grad( J(x, y), x ) ) )
-Number of iterations is a hyper-parameter, that trades off between computational speed and a successful attack.
-So far, we have discussed non-targeted and white box attacks. We will next look at a targeted attack.
+We extend the idea of the above method and iteratively perform the update for $$x'$$ and clip the output pixel wise so as to keep final $$x'$$ within $$\epsilon$$ neighborhood.
+
+$$x' = clip-\epsilon(x + sign(\frac{\partial J}{\partial x}))$$
+
+Number of iterations is a hyper-parameter, that trades off between computational speed and a successful attack. So far, we have discussed non-targeted and white box attacks. We will next look at a targeted attack.
+
 ### Targeted Fast Gradient Sign Method
-We choose y-target and get a clean image x from which we would like to generate an adversarial example, X. Ideally, this image belongs to a class that is perceptually close to y-target but belongs to a different class.
-X = Clip-epsilon( x - sign( grad( J( x, y-target ), x ) ) )
-We now “descend” the gradient as indicated by the negative sign so as to get closer to y-target. This method can be extended as an iterative process as well.
+We choose a target label and get a clean image x from which we would like to generate an adversarial example, x'. Ideally, this image belongs to a class that is perceptually close to our target but belongs to a different class. In the update step, the cost $$J$$ is calculated against the target class rather than the class of $$x$$.
+
+$$x' = clip-\epsilon(x - sign(\frac{\partial J}{\partial x}))$$
+
+We now “descend” the gradient as indicated by the negative sign so as to get closer to the target. This method can be extended as an iterative process as well.
 We have discussed methods to generate targeted and non-targeted white-box attacks. What if the model is a black box and we do not know the gradient information? Turns out, the adversarial examples are usually not model/architecture specific. So, you can go ahead and create your own model, generate adversarial examples using your model and they will succeed in attacking a different model trained on the same task.
 
 ## What can we do to defend our models?
