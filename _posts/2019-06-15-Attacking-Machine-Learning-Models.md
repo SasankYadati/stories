@@ -29,7 +29,7 @@ Adversarial attacks can be classified based on what the attacker knows about the
 
 ## So, why does such a vulnerability exists?
 First things first: this misclassification is not due to overfitting. Models which have high performance results on test sets are vulnerable as well! Adversarial examples fooling models basically implies that models are not robust to calculated noise. Small non-perceivable perturbations in the inputs are a challenge to the model. The reason for this is somewhat intuitive. I will try my best to explain this.
-Let us consider the problem of image classification. Consider a hypercube of n dimensions. All possible input images of size n exist in this hypercube. A classifier will “learn” to divide this hypercube into k partitions where k is the number of classes. Naturally, each class is a distribution on this hypercube and all the classes are mutually exclusive. In nature and reality, most of the points in the hypercube do not occur and hence are fake images. But, the classifier has learnt a mapping from all the points in the hypercube to a probability distribution over the classes. An adversarial image of image $$x$$ is image $$y$$, subject to $$\lvert x - y \rvert ≤ \epsilon $$ ($$\epsilon$$ is a small amount of noise), where $$y$$ is classified differently from $$x$$. Under these assumptions, we can see that adversarial examples always exist. The classifier will try to classify the input even if the input doesn’t occur in the natural distribution.
+Let us consider the problem of image classification. Consider a hypercube of $$n$$ dimensions. All possible input images of size n exist in this hypercube. A classifier will “learn” to divide this hypercube into $$k$$ partitions where $$k$$ is the number of classes. Naturally, each class is a distribution on this hypercube and all the classes are mutually exclusive. In nature and reality, most of the points in the hypercube do not occur and hence are fake images. But, the classifier has learnt a mapping from all the points in the hypercube to a probability distribution over the classes. An adversarial image of image $$x$$ is image $$y$$, subject to $$\lvert x - y \rvert ≤ \epsilon $$ ($$\epsilon$$ is a small amount of noise), where $$y$$ is classified differently from $$x$$. Under these assumptions, we can see that adversarial examples always exist. The classifier will try to classify the input even if the input doesn’t occur in the natural distribution.
 But, theoretically deep neural networks are able to represent functions that are resistant to adversarial examples. Remember universal approximation theorem?! So, the learning algorithms are the real culprit here. They simply are not told to be wary of adversarial examples.
 
 ![]({{ site.baseurl }}images/2019-06-15-Attacking-Machine-Learning-Models/adv_meme.jpg "Source: Machine Learning at Berkeley")
@@ -37,8 +37,8 @@ But, theoretically deep neural networks are able to represent functions that are
 ## How to generate Adversarial Examples?
 We are already past the hardest part. We will discuss few methods to generate adversarial examples below and the key idea here is to use the gradient information.
 ### Fast Gradient Sign Method
-For a given example x, generate adversarial example X as follows:
-X = x + epsilon * sign( grad( J( x, y), x ) )
+For a given example $$x$$, generate adversarial example $$x'$$ as follows:
+$$x' = x + \epsilon * sign(\frac{\dbarJ(x, y)}{\dbarx})$$
 grad() is the gradient function. sign() returns the sign of the input. epsilon is the amount of perturbation. J is the cost function. y is the ground truth for x.
 This can be intuitive once you notice that we are moving the image in the direction of increasing gradient in steps of size epsilon.
 This is a one shot method to generate an adversarial example. Value of epsilon is a trade off between similarity to x and success of an adversarial attack using X.
