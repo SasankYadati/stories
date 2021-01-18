@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Attacking Machine Learning Models | Finding X</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Attacking Machine Learning Models" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Let us evaluate the capabilities of Deep Learning." />
+<meta property="og:description" content="Let us evaluate the capabilities of Deep Learning." />
+<link rel="canonical" href="https://sasankyadati.github.io/stories/deep%20learning/2019/06/15/Attacking-Machine-Learning-Models.html" />
+<meta property="og:url" content="https://sasankyadati.github.io/stories/deep%20learning/2019/06/15/Attacking-Machine-Learning-Models.html" />
+<meta property="og:site_name" content="Finding X" />
+<meta property="og:image" content="https://sasankyadati.github.io/stories/images/2019-06-15-Attacking-Machine-Learning-Models/adversarial.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-06-15T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://sasankyadati.github.io/stories/deep%20learning/2019/06/15/Attacking-Machine-Learning-Models.html","@type":"BlogPosting","headline":"Attacking Machine Learning Models","dateModified":"2019-06-15T00:00:00-05:00","datePublished":"2019-06-15T00:00:00-05:00","image":"https://sasankyadati.github.io/stories/images/2019-06-15-Attacking-Machine-Learning-Models/adversarial.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://sasankyadati.github.io/stories/deep%20learning/2019/06/15/Attacking-Machine-Learning-Models.html"},"description":"Let us evaluate the capabilities of Deep Learning.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/stories/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://sasankyadati.github.io/stories/feed.xml" title="Finding X" /><link rel="shortcut icon" type="image/x-icon" href="/stories/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/stories/">Finding X</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/stories/about/">About Me</a><a class="page-link" href="/stories/search/">Search</a><a class="page-link" href="/stories/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Attacking Machine Learning Models</h1><p class="page-description">Let us evaluate the capabilities of Deep Learning.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2019-06-15T00:00:00-05:00" itemprop="datePublished">
+        Jun 15, 2019
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      5 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/stories/categories/#Deep Learning">Deep Learning</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Machine Learning is an incredibly exciting technology. Many systems powered by Machine Learning are helping in making predictions and decisions for most businesses and organizations. The impact of such models is undeniable and significant. These models face many security issues nevertheless. It turns out such models could be fooled using some smartly crafted inputs. What’s worse is that crafting such inputs is not so hard at all. You can go ahead, hide your model and data. It’s still possible!</p>
+
+<h2 id="the-implications">The Implications!</h2>
+<p>Oh, the implications are of significance definitely. Imagine a self driving car being fooled by a modified sign board. All one needs to do is print the adversarial image of the sign on a paper and stick it over. This is just one example of exploiting such weakness and I will leave it to your imagination where situations far worse are possible!</p>
+
+<p><img src="/storiesimages/2019-06-15-Attacking-Machine-Learning-Models/adversarial.png" alt="" title="Doesn’t look like anything to me!" /></p>
+
+<h2 id="adversarial-attacks">Adversarial Attacks</h2>
+<p>Before we get any technical, here’s an informal introduction to adversarial attacks. This write-up is in no way a rigorous review of this field and is written only to expose you to some aspects of adversarial attacks in machine learning. Hope this inspires you even just a little bit to explore more about this field.
+Wew! With that being said, let’s dive in.</p>
+
+<p>Adversarial attacks are basically when an attacker or an adversary uses adversarial examples to trick models into misclassifying them when such a misclassification is not expected of them.</p>
+
+<blockquote>
+  <p>What are the reasons for such a vulnerability? How do we come up with adversarial examples? How can we defend our models against such attacks?</p>
+</blockquote>
+
+<p>Before we seek answers to these questions, lets get over with some formalities!</p>
+
+<p>Adversarial attacks can be classified based on what the attacker knows about the model and if the attacker wants to target the model to predict a particular class or not. More formally, there are black-box attacks where the attacker knows nothing about the architecture or the parameters of the model but has access to using it to make predictions. White-box attacks are just the opposite — attacker knows the model’s internals. If the attacker wants to target a particular class to be the output for the adversarial input, we call that a targeted attack and non-targeted otherwise.</p>
+
+<h2 id="so-why-does-such-a-vulnerability-exists">So, why does such a vulnerability exists?</h2>
+<p>First things first: this misclassification is not due to overfitting. Models which have high performance results on test sets are vulnerable as well! Adversarial examples fooling models basically implies that models are not robust to calculated noise. Small non-perceivable perturbations in the inputs are a challenge to the model. The reason for this is somewhat intuitive. I will try my best to explain this.
+Let us consider the problem of image classification. Consider a hypercube of n dimensions. All possible input images of size n exist in this hypercube. A classifier will “learn” to divide this hypercube into k partitions where k is the number of classes. Naturally, each class is a distribution on this hypercube and all the classes are mutually exclusive. In nature and reality, most of the points in the hypercube do not occur and hence are fake images. But, the classifier has learnt a mapping from all the points in the hypercube to a probability distribution over the classes. An adversarial image of image <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span> is image <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>, subject to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">∣</mo><mi>x</mi><mo>−</mo><mi>y</mi><mo stretchy="false">∣</mo><mo>≤</mo><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">\lvert x - y \rvert ≤ \epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">∣</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">ϵ</span></span></span></span> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">ϵ</span></span></span></span> is a small amount of noise), where <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span> is classified differently from <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>. Under these assumptions, we can see that adversarial examples always exist. The classifier will try to classify the input even if the input doesn’t occur in the natural distribution.
+But, theoretically deep neural networks are able to represent functions that are resistant to adversarial examples. Remember universal approximation theorem?! So, the learning algorithms are the real culprit here. They simply are not told to be wary of adversarial examples.</p>
+
+<p><img src="/storiesimages/2019-06-15-Attacking-Machine-Learning-Models/adv_meme.jpg" alt="" title="Source: Machine Learning at Berkeley" /></p>
+
+<h2 id="how-to-generate-adversarial-examples">How to generate Adversarial Examples?</h2>
+<p>We are already past the hardest part. We will discuss few methods to generate adversarial examples below and the key idea here is to use the gradient information.</p>
+<h3 id="fast-gradient-sign-method">Fast Gradient Sign Method</h3>
+<p>For a given example x, generate adversarial example X as follows:
+X = x + epsilon * sign( grad( J( x, y), x ) )
+grad() is the gradient function. sign() returns the sign of the input. epsilon is the amount of perturbation. J is the cost function. y is the ground truth for x.
+This can be intuitive once you notice that we are moving the image in the direction of increasing gradient in steps of size epsilon.
+This is a one shot method to generate an adversarial example. Value of epsilon is a trade off between similarity to x and success of an adversarial attack using X.</p>
+<h3 id="basic-iterative-method">Basic Iterative Method</h3>
+<p>We extend the idea of above method and iteratively perform the update for X and clip the output pixel wise so as to keep final X within epsilon neighborhood.
+X = Clip-epsilon( x + sign( grad( J(x, y), x ) ) )
+Number of iterations is a hyper-parameter, that trades off between computational speed and a successful attack.
+So far, we have discussed non-targeted and white box attacks. We will next look at a targeted attack.</p>
+<h3 id="targeted-fast-gradient-sign-method">Targeted Fast Gradient Sign Method</h3>
+<p>We choose y-target and get a clean image x from which we would like to generate an adversarial example, X. Ideally, this image belongs to a class that is perceptually close to y-target but belongs to a different class.
+X = Clip-epsilon( x - sign( grad( J( x, y-target ), x ) ) )
+We now “descend” the gradient as indicated by the negative sign so as to get closer to y-target. This method can be extended as an iterative process as well.
+We have discussed methods to generate targeted and non-targeted white-box attacks. What if the model is a black box and we do not know the gradient information? Turns out, the adversarial examples are usually not model/architecture specific. So, you can go ahead and create your own model, generate adversarial examples using your model and they will succeed in attacking a different model trained on the same task.</p>
+
+<h2 id="what-can-we-do-to-defend-our-models">What can we do to defend our models?</h2>
+
+<h2 id="conclusion">Conclusion</h2>
+
+  </div><a class="u-url" href="/stories/deep%20learning/2019/06/15/Attacking-Machine-Learning-Models.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/stories/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/stories/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/stories/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>I tell my stories here.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/SasankYadati" title="SasankYadati"><svg class="svg-icon grey"><use xlink:href="/stories/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/SasankYadati" title="SasankYadati"><svg class="svg-icon grey"><use xlink:href="/stories/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
