@@ -35,6 +35,7 @@ A digital computer consists mainly of 3 parts.
 * Store
 * Executive Unit
 * Control
+
 The store is a collection of information. The executive unit carries out various individual operations, which vary from machine to machine. The table of operations that the machine can perform are stored as part of the store. The control makes sure the instructions are obeyed in the right order. The information in store is usually stored in small packets of fixed size. Numbers are systematically assigned to the parts of store to identify packets.
 
 There are digital computers being constructed at present just according to the principles we have described. If one desires to make a machine mimic the behavior of a human computer, all they have to do is describe formally what the human computer does in the form of an instruction table. We call the construction of instruction tables, programming.
@@ -93,6 +94,7 @@ We mainly see three components when we observe the growth of a child’s mind in
 1. Initial state of mind, say, at birth
 2. Education it has been subjected to
 3. Other experiences it has been subjected to
+
 Producing a program to simulate a child’s mind and subjecting it to necessary experience is just as appropriate as producing one that simulates an adult mind.
 The program and the experience are closely connected. This idea is in fact analogous to evolution, where the judge evaluating a machine’s progress corresponds to natural selection. However, this process is likely faster and more efficient than natural selection.
 The use of punishments and rewards, which are traditionally associated with teaching, can at best be a part of training process if there are “unemotional” channels of communicating the punishments and rewards.
@@ -101,4 +103,5 @@ If the idea of a learning machine sounds paradoxical, it could help to understan
 The teacher of the learning machine will be mostly ignorant of the machine’s internals. We should be able to teach the machine to do something without being too detailed on how to do it. What may seem to us as random behaviour — owing to the deviation from deterministic behaviour, is presumably intelligent behaviour.
 The inclusion of randomness in a learning machine is useful especially when solving a problem with multiple solutions. It is unnecessary to keep track of the tried solutions. Since there are probably a lot of solutions for the learning problem, random process is better than systematic.
 Hopefully, machines will soon compete with men intellectually. It could be by starting out on abstract tasks like playing chess (popular opinion) or it could be by providing the machine sensory equipment followed by a process similar to that of teaching a child. The right answer is unknown and both should be tried.
-> #### We can only see a short distance ahead, but we can see plenty there that needs to be done.
+
+> ### We can only see a short distance ahead, but we can see plenty there that needs to be done.
